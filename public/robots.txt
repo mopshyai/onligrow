@@ -1,0 +1,11 @@
+# OnliGrow Website - Robots.txt
+# https://onligrow.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://onligrow.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
