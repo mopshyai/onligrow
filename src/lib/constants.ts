@@ -3,7 +3,7 @@
  * Centralized configuration for easy maintenance
  */
 
-import type { TeamMember, Benefit, HowItWorksStep, NavLink, Module } from '@/types';
+import type { TeamMember, Benefit, HowItWorksStep, NavLink, Module, Product } from '@/types';
 
 // ============================================
 // SITE CONFIGURATION
@@ -384,6 +384,40 @@ export const IMPACT_NUMBERS = {
   realProjects: { value: '3-5', label: 'Real Projects with External Validation', detail: 'Actual users, clients, citations, revenue' },
   tools: { value: '₹15K+', label: 'Professional Tools (Free)', detail: '.edu email unlocks GitHub, Microsoft 365, Canva Pro, JetBrains' },
 } as const;
+
+// ============================================
+// PRODUCTS
+// ============================================
+
+export const PRODUCTS: Product[] = [
+  {
+    name: 'Free Demo Session',
+    duration: '45 minutes',
+    price: 'Free',
+    description: 'One interactive session where your students experience real AI tools. See the impact before you commit.',
+    cta: 'Book Free Demo',
+    href: '/demo',
+    icon: 'presentation',
+  },
+  {
+    name: 'Quarterly Program',
+    duration: '3 months',
+    price: '₹999/student',
+    description: 'Full access to all 8 modules. Our facilitators come to your school. Zero teacher burden. NEP 2020 aligned.',
+    cta: 'Get Started',
+    href: '/schools',
+    icon: 'graduationCap',
+  },
+  {
+    name: 'OnliGrow Olympiad',
+    duration: 'Annual',
+    price: '₹299/student',
+    description: 'India\'s first AI-focused inter-school competition. Three rounds. National stage. Grades 8-12.',
+    cta: 'Register Now',
+    href: '/olympiad',
+    icon: 'trophy',
+  },
+];
 
 // ============================================
 // FOOTER LINKS

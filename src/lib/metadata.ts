@@ -116,6 +116,16 @@ export const pageMetadata = {
     },
   },
 
+  programs: {
+    title: 'Our Programs — What We Offer',
+    description:
+      'Explore OnliGrow\'s complete program offerings — 8 modules covering AI education, career architecture, English & life skills, business exposure, competitions, and more.',
+    openGraph: {
+      title: 'Our Programs | OnliGrow',
+      description: 'Complete program offerings — 8 modules, year-round school partnership.',
+    },
+  },
+
   certifications: {
     title: 'OnliGrow Certifications — Skill-Based, Not Time-Based',
     description:

@@ -45,7 +45,7 @@ const cardVariants = {
  * Individual product card component
  */
 function ProductCard({ product, featured = false }: { product: Product; featured?: boolean }) {
-  const Icon = iconMap[product.icon];
+  const Icon = iconMap[product.icon as keyof typeof iconMap];
 
   return (
     <motion.div

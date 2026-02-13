@@ -12,6 +12,8 @@ import { cn } from '@/lib/utils';
 type BadgeVariant =
   | 'default'
   | 'primary'
+  | 'secondary'
+  | 'accent'
   | 'energy'
   | 'creative'
   | 'success'
@@ -48,6 +50,8 @@ interface BadgeProps {
 const variantStyles: Record<BadgeVariant, string> = {
   default: 'bg-gray-100 text-gray-700',
   primary: 'bg-primary-100 text-primary-700',
+  secondary: 'bg-secondary/20 text-secondary-700',
+  accent: 'bg-accent/20 text-accent-700',
   energy: 'bg-energy-100 text-energy-700',
   creative: 'bg-creative-100 text-creative-700',
   success: 'bg-success-100 text-success-700',

@@ -77,19 +77,17 @@ function formatNumber(num: number): string {
 function StatCard({
   metricKey,
   value,
-  suffix,
   label,
   subLabel,
   index,
 }: {
   metricKey: string;
-  value: number;
-  suffix: string;
+  value: string;
   label: string;
   subLabel?: string;
   index: number;
 }) {
-  const { count, ref } = useCounter(value, 2000);
+  const ref = useRef<HTMLDivElement>(null);
   const Icon = iconMap[metricKey as keyof typeof iconMap];
 
   return (
@@ -102,14 +100,15 @@ function StatCard({
       className="text-center"
     >
       {/* Icon */}
-      <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
-        <Icon className="w-8 h-8 text-secondary" />
-      </div>
+      {Icon && (
+        <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+          <Icon className="w-8 h-8 text-secondary" />
+        </div>
+      )}
 
       {/* Number */}
       <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-heading mb-2">
-        {formatNumber(count)}
-        <span className="text-secondary">{suffix}</span>
+        <span className="text-secondary">{value}</span>
       </div>
 
       {/* Label */}
@@ -153,9 +152,8 @@ export function ImpactNumbers() {
             key={stat.key}
             metricKey={stat.key}
             value={stat.value}
-            suffix={stat.suffix}
             label={stat.label}
-            subLabel={stat.subLabel}
+            subLabel={stat.detail}
             index={index}
           />
         ))}
