@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   tagline: 'The Operating System for Student Futures',
   description:
     'A 5-year operating system that transforms school students into career-ready, portfolio-carrying, nationally-competitive young adults. AI education, career architecture, life skills, national competitions, and professional tools — delivered inside your school.',
-  url: 'https://onligrow.com',
+  url: 'https://onligrow.in',
   founded: 2026,
   locale: 'en-IN',
 } as const;
@@ -25,8 +25,8 @@ export const SITE_CONFIG = {
 // ============================================
 
 export const CONTACT = {
-  email: 'info@onligrow.com',
-  teamEmail: 'team@onligrow.com',
+  email: 'info@onligrow.in',
+  teamEmail: 'team@onligrow.in',
   phone: '+91-XXXXXXXXXX',
   whatsappNumber: '91XXXXXXXXXX',
   whatsappLink:
@@ -397,7 +397,7 @@ export const FOOTER_LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   getTheApp: [
-    { label: '📱 PWA Available Now', href: 'https://app.onligrow.com', external: true },
+    { label: '📱 PWA Available Now', href: 'https://app.onligrow.in', external: true },
     { label: '🍎 iOS — Coming Q3 2026', href: '#', disabled: true },
     { label: '🤖 Android — Coming Q3 2026', href: '#', disabled: true },
   ],
