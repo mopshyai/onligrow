@@ -41,7 +41,7 @@ export function Card({
   return (
     <div
       className={cn(
-        'rounded-xl bg-white',
+        'rounded-2xl bg-white',
         padded && 'p-6',
         variant === 'default' && 'shadow-md',
         variant === 'bordered' && 'border border-gray-200',
@@ -74,12 +74,12 @@ export function CardHeader({ title, subtitle, icon, className }: CardHeaderProps
   return (
     <div className={cn('mb-4', className)}>
       {icon && (
-        <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
+        <div className="w-12 h-12 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mb-3">
           {icon}
         </div>
       )}
-      <h3 className="text-xl font-semibold text-dark font-heading">{title}</h3>
-      {subtitle && <p className="text-gray-600 mt-1">{subtitle}</p>}
+      <h3 className="text-xl font-semibold text-gray-900 font-heading">{title}</h3>
+      {subtitle && <p className="text-gray-700 mt-1">{subtitle}</p>}
     </div>
   );
 }
@@ -133,11 +133,11 @@ interface IconCardProps {
 export function IconCard({ icon, title, description, className }: IconCardProps) {
   return (
     <Card hoverable className={className}>
-      <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+      <div className="w-14 h-14 rounded-2xl bg-primary-100 text-primary-600 flex items-center justify-center mb-4">
         {icon}
       </div>
-      <h3 className="text-lg font-semibold text-dark font-heading mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-lg font-semibold text-gray-900 font-heading mb-2">{title}</h3>
+      <p className="text-gray-700">{description}</p>
     </Card>
   );
 }

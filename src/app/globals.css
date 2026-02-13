@@ -1,6 +1,7 @@
 /**
  * OnliGrow Global Styles
  * Tailwind CSS v4 configuration with custom design tokens
+ * VIBRAE DESIGN SYSTEM: Primary (Indigo), Energy (Orange), Success (Emerald), Creative (Purple), Warm (Rose)
  */
 
 @import "tailwindcss";
@@ -9,62 +10,164 @@
    CUSTOM THEME - OnliGrow Design Tokens
    ============================================ */
 @theme inline {
-  /* Primary Blue Colors */
-  --color-primary-50: #EFF6FF;
-  --color-primary-100: #DBEAFE;
-  --color-primary-200: #BFDBFE;
-  --color-primary-300: #93C5FD;
-  --color-primary-400: #60A5FA;
-  --color-primary-500: #3B82F6;
-  --color-primary-600: #2563EB;
-  --color-primary-700: #1D4ED8;
-  --color-primary-800: #1E40AF;
-  --color-primary-900: #1E3A8A;
-  --color-primary-950: #172554;
+  /* Primary Indigo Colors — trust, education, depth */
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-200: #C7D2FE;
+  --color-primary-300: #A5B4FC;
+  --color-primary-400: #818CF8;
+  --color-primary-500: #6366F1;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338CA;
+  --color-primary-800: #3730A3;
+  --color-primary-900: #312E81;
+  --color-primary-950: #1E1B4B;
 
-  /* Secondary Orange Colors */
-  --color-secondary-50: #FFFBEB;
-  --color-secondary-100: #FEF3C7;
-  --color-secondary-200: #FDE68A;
-  --color-secondary-300: #FCD34D;
-  --color-secondary-400: #FBBF24;
-  --color-secondary-500: #F59E0B;
-  --color-secondary-600: #D97706;
-  --color-secondary-700: #B45309;
-  --color-secondary-800: #92400E;
-  --color-secondary-900: #78350F;
+  /* Energy Orange Colors — excitement, action, CTAs */
+  --color-energy-50: #FFF7ED;
+  --color-energy-100: #FFEDD5;
+  --color-energy-200: #FED7AA;
+  --color-energy-300: #FDBA74;
+  --color-energy-400: #FB923C;
+  --color-energy-500: #F97316;
+  --color-energy-600: #EA580C;
+  --color-energy-700: #C2410C;
+  --color-energy-800: #9A3412;
+  --color-energy-900: #7C2D12;
+  --color-energy-950: #431407;
 
-  /* Accent Purple Colors */
-  --color-accent-50: #F5F3FF;
-  --color-accent-100: #EDE9FE;
-  --color-accent-200: #DDD6FE;
-  --color-accent-300: #C4B5FD;
-  --color-accent-400: #A78BFA;
-  --color-accent-500: #8B5CF6;
-  --color-accent-600: #7C3AED;
-  --color-accent-700: #6D28D9;
-  --color-accent-800: #5B21B6;
-  --color-accent-900: #4C1D95;
+  /* Success Emerald Colors — growth, achievement */
+  --color-success-50: #ECFDF5;
+  --color-success-100: #D1FAE5;
+  --color-success-200: #A7F3D0;
+  --color-success-300: #6EE7B7;
+  --color-success-400: #34D399;
+  --color-success-500: #10B981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065F46;
+  --color-success-900: #064E3B;
+  --color-success-950: #022C22;
 
-  /* Legacy single color variables for compatibility */
-  --color-primary: #2563EB;
-  --color-secondary: #F59E0B;
-  --color-secondary-dark: #D97706;
-  --color-accent: #7C3AED;
-  --color-dark: #1F2937;
-  --color-light: #F3F4F6;
+  /* Creative Purple Colors — creativity, AI, imagination */
+  --color-creative-50: #FAF5FF;
+  --color-creative-100: #F3E8FF;
+  --color-creative-200: #E9D5FF;
+  --color-creative-300: #D8B4FE;
+  --color-creative-400: #C084FC;
+  --color-creative-500: #A855F7;
+  --color-creative-600: #9333EA;
+  --color-creative-700: #7E22CE;
+  --color-creative-800: #6B21A8;
+  --color-creative-900: #581C87;
+  --color-creative-950: #3B0764;
+
+  /* Warm Rose Colors — warmth, care, parent-friendly */
+  --color-warm-50: #FFF1F2;
+  --color-warm-100: #FFE4E6;
+  --color-warm-200: #FECDD3;
+  --color-warm-300: #FDA4AF;
+  --color-warm-400: #FB7185;
+  --color-warm-500: #F43F5E;
+  --color-warm-600: #E11D48;
+  --color-warm-700: #BE123C;
+  --color-warm-800: #9F1239;
+  --color-warm-900: #881337;
+  --color-warm-950: #4C0519;
+
+  /* Legacy single color variables */
+  --color-primary: #4F46E5;
+  --color-secondary: #F97316;
+  --color-accent: #10B981;
+  --color-dark: #1E1B4B;
+  --color-light: #F8FAFC;
   --color-background: #ffffff;
-  --color-foreground: #1F2937;
+  --color-foreground: #1E1B4B;
 
   /* Fonts */
   --font-heading: var(--font-poppins), system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
   --font-hindi: var(--font-hindi), "Noto Sans Devanagari", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
   /* Spacing System */
   --spacing-section-y: 5rem;
   --spacing-section-y-md: 7rem;
   --spacing-section-y-lg: 8rem;
+
+  /* Custom animations */
+  --animate-float-slow: float 20s ease-in-out infinite;
+  --animate-float-slower: float 25s ease-in-out infinite reverse;
+  --animate-float-medium: float 15s ease-in-out infinite;
+  --animate-bounce-slow: gentle-bounce 6s ease-in-out infinite;
+  --animate-bounce-slower: gentle-bounce 8s ease-in-out infinite;
+  --animate-bounce-medium: gentle-bounce 5s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-ticker: ticker 25s linear infinite;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-bounce-subtle: bounce-subtle 2s ease-in-out infinite;
+  --animate-phone-scroll: phone-scroll 8s ease-in-out infinite;
+  --animate-gradient-border: gradient-shift 4s ease infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(30px, -30px); }
+    66% { transform: translate(-20px, 20px); }
+  }
+
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6); }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes phone-scroll {
+    0%, 15%, 85%, 100% { transform: translateY(0); }
+    40%, 60% { transform: translateY(-20px); }
+  }
+
+  @keyframes draw-path {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
 }
 
 /* ============================================
@@ -72,10 +175,9 @@
    ============================================ */
 :root {
   --background: #ffffff;
-  --foreground: #1F2937;
+  --foreground: #1E1B4B;
 }
 
-/* Light mode only - professional and trustworthy */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -95,7 +197,7 @@ body {
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -111,8 +213,8 @@ h1, h2, h3, h4, h5, h6 {
    SELECTION
    ============================================ */
 ::selection {
-  background-color: #DBEAFE;
-  color: #1E3A8A;
+  background-color: #E0E7FF;
+  color: #312E81;
 }
 
 /* ============================================
@@ -133,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #4338CA;
 }
 
 /* ============================================
@@ -159,33 +261,66 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* Gradient text utility */
+/* Gradient text utilities */
 .text-gradient {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  background-image: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-600));
+  background-image: linear-gradient(135deg, #4F46E5, #A855F7);
+}
+
+.text-gradient-warm {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #F97316, #F43F5E, #A855F7);
+}
+
+.text-gradient-energy {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #F97316, #FB923C);
+}
+
+.text-gradient-primary {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #4F46E5, #9333EA);
 }
 
 /* Modern gradient backgrounds */
 .gradient-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
 }
 
-.gradient-tech {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+.gradient-hero {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 40%, #3B0764 100%);
 }
 
-.gradient-vibrant {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.gradient-warm-cta {
+  background: linear-gradient(135deg, #F97316 0%, #F43F5E 50%, #A855F7 100%);
 }
 
-.gradient-sunset {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+.gradient-numbers {
+  background: linear-gradient(135deg, #4F46E5 0%, #A855F7 40%, #F97316 100%);
 }
 
-.gradient-ocean {
-  background: linear-gradient(135deg, #2e3192 0%, #1bffff 100%);
+.gradient-creative {
+  background: linear-gradient(135deg, #A855F7 0%, #6366F1 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.gradient-energy {
+  background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+}
+
+.gradient-soft {
+  background: linear-gradient(135deg, #FAF5FF 0%, #EEF2FF 50%, #FFF7ED 100%);
 }
 
 /* Glassmorphism effects */
@@ -204,93 +339,51 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Modern shadows */
-.shadow-glow {
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+.glass-dark {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.shadow-glow-accent {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+/* Modern shadows */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+}
+
+.shadow-glow-energy {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
+}
+
+.shadow-glow-creative {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
 .shadow-elevated {
   box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.2);
 }
 
-/* Animated gradients */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.shadow-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
 }
 
+/* Animated gradients */
 .gradient-animated {
-  background: linear-gradient(270deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(270deg, #4F46E5, #A855F7, #F97316);
   background-size: 600% 600%;
   animation: gradient-shift 8s ease infinite;
 }
 
-/* Animation utilities */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.gradient-border-animated {
+  background: linear-gradient(270deg, #4F46E5, #A855F7, #F97316, #F43F5E);
+  background-size: 600% 600%;
+  animation: gradient-shift 4s ease infinite;
 }
 
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.5s ease-out;
-}
-
-.animate-slide-down {
-  animation: slide-down 0.5s ease-out;
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 2s ease-in-out infinite;
+/* Dot grid pattern for hero */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 /* ============================================

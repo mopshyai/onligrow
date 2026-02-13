@@ -6,7 +6,6 @@
 import type { Metadata } from 'next';
 import { Check, Shield, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
-import { PageHero } from '@/components/shared/PageHero';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { SectionWrapper, SectionHeader } from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
@@ -14,9 +13,6 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = pageMetadata.parents;
 
-/**
- * What children learn
- */
 const whatChildGets = [
   'Understand AI by actually using it — not just hearing about it',
   'Discover 50+ career paths beyond Doctor, Engineer, CA',
@@ -27,9 +23,6 @@ const whatChildGets = [
   'Earn certificates that set them apart',
 ];
 
-/**
- * Common questions from parents - Hindi-English mix
- */
 const parentFAQs = [
   {
     q: 'Ye kya hai exactly?',
@@ -57,9 +50,6 @@ const parentFAQs = [
   },
 ];
 
-/**
- * Safety points
- */
 const safetyPoints = [
   'All sessions inside school, during school hours, under teacher supervision',
   'Trained, background-verified facilitators',
@@ -75,26 +65,43 @@ export default function ParentsPage() {
 
   return (
     <>
-      {/* Page Hero */}
-      <PageHero
-        title="Aapka Bachcha Sirf Padhai Nahi, Future Ke Liye Tayyar Ho Raha Hai"
-        subtitle="What your child gets through OnliGrow — and why it matters."
-        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'For Parents' }]}
-      />
+      {/* Hero */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-creative-950" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-energy-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-creative-500/15 rounded-full blur-3xl" />
+        <div className="absolute inset-0 dot-grid opacity-10" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <p className="text-sm uppercase tracking-wider text-energy-400 font-semibold mb-4">
+            For Parents
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading">
+            Aapka Bachcha Sirf Padhai Nahi, Future Ke Liye Tayyar Ho Raha Hai
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            What your child gets through OnliGrow — and why it matters.
+          </p>
+        </div>
+      </section>
 
       {/* What Your Child Gets */}
       <SectionWrapper>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading text-center mb-6">
             What Your Child Gets
           </h2>
           <p className="text-lg text-gray-700 text-center mb-10">
-            OnliGrow isn't tuition. It's everything your child's school has never offered before — delivered inside the school, by trained professionals, all year round.
+            OnliGrow isn&apos;t tuition. It&apos;s everything your child&apos;s
+            school has never offered before — delivered inside the school, by
+            trained professionals, all year round.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {whatChildGets.map((item, index) => (
-              <div key={index} className="flex items-start gap-3 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                <Check className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <div
+                key={index}
+                className="flex items-start gap-3 bg-white rounded-2xl p-6 shadow-card border border-gray-100"
+              >
+                <Check className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
                 <span className="text-gray-700">{item}</span>
               </div>
             ))}
@@ -105,19 +112,21 @@ export default function ParentsPage() {
       {/* Common Parent Questions */}
       <SectionWrapper background="light">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark font-heading text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading text-center mb-4">
             Common Questions
           </h2>
-          <p className="text-gray-600 text-center mb-12">
+          <p className="text-gray-700 text-center mb-12">
             Hindi-English mix — just like we talk
           </p>
           <div className="space-y-6">
             {parentFAQs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+                className="bg-white rounded-2xl p-6 shadow-card border border-gray-100"
               >
-                <h3 className="font-semibold text-dark mb-3 text-lg">{faq.q}</h3>
+                <h3 className="font-semibold text-gray-900 mb-3 text-lg">
+                  {faq.q}
+                </h3>
                 <p className="text-gray-700 leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -129,18 +138,21 @@ export default function ParentsPage() {
       <SectionWrapper>
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Shield className="w-10 h-10 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-dark font-heading">
+            <Shield className="w-10 h-10 text-primary-600" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading">
               Safety & Privacy
             </h2>
           </div>
           <p className="text-lg text-gray-700 text-center mb-8">
-            Your child's safety is our #1 priority.
+            Your child&apos;s safety is our #1 priority.
           </p>
           <div className="space-y-4">
             {safetyPoints.map((point, index) => (
-              <div key={index} className="flex items-start gap-3 bg-light rounded-xl p-6">
-                <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+              <div
+                key={index}
+                className="flex items-start gap-3 bg-gray-50 rounded-2xl p-6"
+              >
+                <Check className="w-6 h-6 text-success-600 flex-shrink-0 mt-1" />
                 <span className="text-gray-700">{point}</span>
               </div>
             ))}
@@ -148,7 +160,7 @@ export default function ParentsPage() {
           <div className="text-center mt-8">
             <Link
               href="/privacy"
-              className="text-primary font-medium hover:underline"
+              className="text-primary-600 font-medium hover:underline"
             >
               Read our Privacy Policy →
             </Link>
@@ -159,19 +171,19 @@ export default function ParentsPage() {
       {/* Recommend to Your School */}
       <SectionWrapper background="light">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark font-heading mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-heading mb-6">
             Recommend to Your School
           </h2>
           <p className="text-lg text-gray-700 mb-8">
-            If your school doesn't offer OnliGrow yet, share this page with your school principal.
+            If your school doesn&apos;t offer OnliGrow yet, share this page with
+            your school principal.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               href={whatsappShareLink}
-              variant="primary"
+              variant="whatsapp"
               size="lg"
               leftIcon={<MessageCircle className="w-5 h-5" />}
-              className="bg-[#25D366] hover:bg-[#25D366]/90"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -184,7 +196,6 @@ export default function ParentsPage() {
         </div>
       </SectionWrapper>
 
-      {/* CTA */}
       <CTABanner
         title="Want to Learn More?"
         description="Talk to your school administration about bringing OnliGrow to your child's school."

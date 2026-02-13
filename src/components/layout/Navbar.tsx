@@ -1,32 +1,25 @@
-/**
- * Main navigation component
- * Sticky header with logo, nav links, and CTA button
- * Shows/hides on scroll and has mobile responsive menu
- */
-
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
 import Button from '@/components/ui/Button';
 import MobileMenu from './MobileMenu';
 import { cn } from '@/lib/utils';
 
-/**
- * Navbar component with responsive design
- * - Sticky positioning with shadow on scroll
- * - Hides on scroll down, shows on scroll up
- * - Mobile hamburger menu
- * - "Book a Demo" CTA prominently displayed
- */
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const { isScrolled, isScrollingDown, scrollY } = useScrollPosition(50);
+  const pathname = usePathname();
 
-  // Prevent body scroll when mobile menu is open
+  const isHomePage = pathname === '/';
+  const isTransparent = isHomePage && !isScrolled;
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -38,11 +31,21 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // Close mobile menu on route change (handled by clicking links)
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-  // Determine if navbar should be visible
-  // Hide when scrolling down past threshold, show when scrolling up
+  useEffect(() => {
+    setOpenDropdown(null);
+  }, [pathname]);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const isVisible = !isScrollingDown || scrollY < 100;
 
   return (
@@ -50,7 +53,9 @@ export function Navbar() {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm' : 'bg-white/80 backdrop-blur-md border-b border-transparent',
+          isTransparent
+            ? 'bg-transparent'
+            : 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm',
           isVisible ? 'translate-y-0' : '-translate-y-full'
         )}
       >
@@ -62,31 +67,94 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 font-heading font-bold text-xl md:text-2xl text-primary-600 tracking-tight"
+              className="flex items-center gap-2"
               aria-label={`${SITE_CONFIG.name} home`}
             >
-              {/* Logo placeholder - replace with actual logo */}
-              <span>{SITE_CONFIG.name}</span>
+              <div className="w-8 h-8 bg-gradient-to-br from-energy-500 to-creative-500 rounded-xl flex items-center justify-center">
+                <span className="text-white font-extrabold text-sm">O</span>
+              </div>
+              <span className={cn(
+                'text-xl font-bold font-heading tracking-tight transition-colors',
+                isTransparent ? 'text-white' : 'text-gray-900'
+              )}>
+                Onli<span className={cn(
+                  'transition-colors',
+                  isTransparent ? 'text-energy-400' : 'text-energy-500'
+                )}>Grow</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors
-                             after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary-600
-                             after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <div className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
+              {NAV_LINKS.map((link) => {
+                const isActive = pathname === link.href || (link.children && pathname.startsWith(link.href));
+
+                if (link.children) {
+                  return (
+                    <div key={link.href} className="relative">
+                      <button
+                        type="button"
+                        className={cn(
+                          'flex items-center gap-1 text-sm font-medium transition-colors',
+                          isTransparent
+                            ? isActive ? 'text-white' : 'text-white/80 hover:text-white'
+                            : isActive ? 'text-primary-600' : 'text-gray-600 hover:text-primary-600'
+                        )}
+                        onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                        aria-expanded={openDropdown === link.label}
+                      >
+                        {link.label}
+                        <ChevronDown className={cn(
+                          'w-4 h-4 transition-transform',
+                          openDropdown === link.label && 'rotate-180'
+                        )} />
+                      </button>
+
+                      {openDropdown === link.label && (
+                        <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 animate-fade-in">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={cn(
+                                'block px-4 py-2.5 text-sm transition-colors',
+                                pathname === child.href
+                                  ? 'text-primary-600 bg-primary-50 font-medium'
+                                  : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
+                              )}
+                              onClick={() => setOpenDropdown(null)}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      'relative text-sm font-medium transition-colors',
+                      'after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-energy-500',
+                      'after:transition-all after:duration-300 hover:after:w-full',
+                      isTransparent
+                        ? isActive ? 'text-white after:w-full' : 'text-white/80 hover:text-white'
+                        : isActive ? 'text-primary-600 after:w-full' : 'text-gray-600 hover:text-primary-600'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <Button href="/demo" variant="primary" size="md">
+              <Button href="/demo" variant="energy" size="sm">
                 Book a Demo
               </Button>
             </div>
@@ -94,7 +162,12 @@ export function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               type="button"
-              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              className={cn(
+                'lg:hidden p-2 rounded-lg transition-colors',
+                isTransparent
+                  ? 'text-white hover:bg-white/10'
+                  : 'text-gray-700 hover:bg-gray-100'
+              )}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
@@ -110,11 +183,9 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
-
-      {/* Spacer to prevent content from going under fixed navbar */}
-      <div className="h-16 md:h-20" />
+      {/* Spacer only on non-home pages where nav isn't transparent */}
+      {!isHomePage && <div className="h-16 md:h-20" />}
     </>
   );
 }

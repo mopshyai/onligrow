@@ -66,7 +66,7 @@ export function Heading({
         'font-heading',
         levelStyles[level],
         centered && 'text-center',
-        light ? 'text-white' : 'text-dark',
+        light ? 'text-white' : 'text-gray-900',
         className
       )}
     >
@@ -87,9 +87,9 @@ interface HighlightProps {
 
 export function Highlight({ children, color = 'primary' }: HighlightProps) {
   const colorStyles = {
-    primary: 'text-primary',
-    secondary: 'text-secondary',
-    accent: 'text-accent',
+    primary: 'text-primary-600',
+    secondary: 'text-creative-600',
+    accent: 'text-energy-600',
   };
 
   return <span className={colorStyles[color]}>{children}</span>;

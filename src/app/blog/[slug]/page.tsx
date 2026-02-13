@@ -152,11 +152,11 @@ export default async function BlogPostPage({
     return (
       <SectionWrapper>
         <div className="text-center py-16">
-          <h1 className="text-2xl font-bold text-dark mb-4">Post Not Found</h1>
-          <p className="text-gray-600 mb-6">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Post Not Found</h1>
+          <p className="text-gray-700 mb-6">
             The blog post you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link href="/blog" className="text-primary hover:underline">
+          <Link href="/blog" className="text-primary-600 hover:underline">
             Back to Blog
           </Link>
         </div>
@@ -189,15 +189,15 @@ export default async function BlogPostPage({
         <div className="max-w-3xl mx-auto">
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-4 mb-8 pb-8 border-b border-gray-200">
-            <span className="flex items-center gap-2 text-gray-600">
+            <span className="flex items-center gap-2 text-gray-700">
               <Calendar className="w-5 h-5" />
               {formatDate(post.date)}
             </span>
-            <span className="flex items-center gap-2 text-gray-600">
+            <span className="flex items-center gap-2 text-gray-700">
               <Clock className="w-5 h-5" />
               {post.readingTime} min read
             </span>
-            <span className="text-gray-600">By {post.author}</span>
+            <span className="text-gray-700">By {post.author}</span>
           </div>
 
           {/* Tags */}
@@ -210,7 +210,7 @@ export default async function BlogPostPage({
           </div>
 
           {/* Content */}
-          <article className="prose prose-lg prose-gray max-w-none prose-headings:font-heading prose-headings:text-dark prose-a:text-primary prose-strong:text-dark">
+          <article className="prose prose-lg prose-gray max-w-none prose-headings:font-heading prose-headings:text-gray-900 prose-a:text-primary-600 prose-strong:text-gray-900">
             {/* Simple markdown-like rendering */}
             {post.content.split('\n\n').map((paragraph, index) => {
               if (paragraph.startsWith('## ')) {
@@ -243,7 +243,7 @@ export default async function BlogPostPage({
               }
               if (paragraph.startsWith('*') && paragraph.endsWith('*')) {
                 return (
-                  <p key={index} className="italic text-gray-600">
+                  <p key={index} className="italic text-gray-700">
                     {paragraph.replace(/\*/g, '')}
                   </p>
                 );
@@ -256,7 +256,7 @@ export default async function BlogPostPage({
                     dangerouslySetInnerHTML={{
                       __html: paragraph
                         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary hover:underline">$1</a>'),
+                        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary-600 hover:underline">$1</a>'),
                     }}
                   />
                 );
@@ -269,7 +269,7 @@ export default async function BlogPostPage({
           <div className="mt-12 pt-8 border-t border-gray-200 flex flex-wrap items-center justify-between gap-4">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-primary"
+              className="inline-flex items-center gap-2 text-gray-700 hover:text-primary-600"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog

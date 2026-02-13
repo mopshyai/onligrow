@@ -12,9 +12,10 @@ import { cn } from '@/lib/utils';
 type BadgeVariant =
   | 'default'
   | 'primary'
-  | 'secondary'
-  | 'accent'
+  | 'energy'
+  | 'creative'
   | 'success'
+  | 'warm'
   | 'warning'
   | 'error';
 
@@ -46,10 +47,11 @@ interface BadgeProps {
  */
 const variantStyles: Record<BadgeVariant, string> = {
   default: 'bg-gray-100 text-gray-700',
-  primary: 'bg-primary/10 text-primary',
-  secondary: 'bg-secondary/10 text-secondary-dark',
-  accent: 'bg-accent/10 text-accent',
-  success: 'bg-green-100 text-green-700',
+  primary: 'bg-primary-100 text-primary-700',
+  energy: 'bg-energy-100 text-energy-700',
+  creative: 'bg-creative-100 text-creative-700',
+  success: 'bg-success-100 text-success-700',
+  warm: 'bg-warm-100 text-warm-700',
   warning: 'bg-yellow-100 text-yellow-700',
   error: 'bg-red-100 text-red-700',
 };
@@ -63,19 +65,6 @@ const sizeStyles: Record<BadgeSize, string> = {
   lg: 'px-3 py-1.5 text-base',
 };
 
-/**
- * Badge component for displaying tags, labels, and status indicators
- *
- * @example
- * // Simple badge
- * <Badge>New</Badge>
- *
- * // Primary variant
- * <Badge variant="primary">NEP 2020 Aligned</Badge>
- *
- * // With icon
- * <Badge variant="success" icon={<CheckIcon />}>Active</Badge>
- */
 export function Badge({
   children,
   variant = 'default',
@@ -115,7 +104,7 @@ export function TrustBadge({ text, className }: TrustBadgeProps) {
     <Badge
       variant="primary"
       size="md"
-      className={cn('border border-primary/20', className)}
+      className={cn('border border-primary-200', className)}
     >
       {text}
     </Badge>

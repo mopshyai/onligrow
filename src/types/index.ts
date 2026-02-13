@@ -7,14 +7,12 @@
 // TEAM & PEOPLE
 // ============================================
 
-/**
- * Team member information for founder/team cards
- */
 export interface TeamMember {
   name: string;
   role: string;
   bio: string;
   image: string;
+  initials: string;
   linkedin?: string;
 }
 
@@ -22,9 +20,6 @@ export interface TeamMember {
 // PRODUCTS & SERVICES
 // ============================================
 
-/**
- * Product/service offering details
- */
 export interface Product {
   name: string;
   duration: string;
@@ -32,21 +27,15 @@ export interface Product {
   description: string;
   cta: string;
   href: string;
-  icon: 'presentation' | 'graduationCap' | 'trophy' | 'handshake' | string;
+  icon: string;
 }
 
-/**
- * Benefit item for "Why Schools Choose Us" section
- */
 export interface Benefit {
   title: string;
   description: string;
   icon?: string;
 }
 
-/**
- * Module/Program offering details
- */
 export interface Module {
   id: string;
   icon: string;
@@ -56,49 +45,45 @@ export interface Module {
   tagline: string;
   description: string;
   topics: string[];
+  color: string;
+  hoverDetails: string;
+  toolLogos?: string[];
+  size?: 'normal' | 'large';
 }
 
-/**
- * Step in "How It Works" process
- */
 export interface HowItWorksStep {
   step: number;
   title: string;
   description: string;
+  icon: string;
 }
 
 // ============================================
 // NAVIGATION
 // ============================================
 
-/**
- * Navigation link item
- */
 export interface NavLink {
   label: string;
   href: string;
+  children?: NavLink[];
 }
 
 // ============================================
 // FORMS
 // ============================================
 
-/**
- * Contact/Demo booking form data
- */
 export interface ContactFormData {
   schoolName: string;
   city: string;
   contactName: string;
+  role?: string;
   phone: string;
   email?: string;
   preferredDate?: string;
+  studentCount?: string;
   message?: string;
 }
 
-/**
- * API response for contact form submission
- */
 export interface ContactFormResponse {
   success: boolean;
   message?: string;
@@ -109,9 +94,6 @@ export interface ContactFormResponse {
 // BLOG
 // ============================================
 
-/**
- * Blog post frontmatter metadata
- */
 export interface BlogPostMeta {
   title: string;
   description: string;
@@ -122,9 +104,6 @@ export interface BlogPostMeta {
   slug: string;
 }
 
-/**
- * Full blog post with content
- */
 export interface BlogPost extends BlogPostMeta {
   content: string;
   readingTime: number;
@@ -134,9 +113,6 @@ export interface BlogPost extends BlogPostMeta {
 // TESTIMONIALS
 // ============================================
 
-/**
- * Testimonial from school/student/parent
- */
 export interface Testimonial {
   id: string;
   quote: string;
@@ -147,36 +123,59 @@ export interface Testimonial {
 }
 
 // ============================================
+// SYSTEM & JOURNEY
+// ============================================
+
+export interface GradeInfo {
+  grade: number;
+  theme: string;
+  tagline: string;
+  hours: string;
+  bridge?: string;
+  description: string;
+  outcomes: string[];
+}
+
+export interface CertificationLevel {
+  level: 'bronze' | 'silver' | 'gold';
+  label: string;
+  icon: string;
+  description: string;
+}
+
+export interface ModuleCertification {
+  moduleId: string;
+  moduleName: string;
+  bronze: string;
+  silver: string;
+  gold: string;
+}
+
+export interface QuarterInfo {
+  grade: number;
+  quarter: number;
+  label: string;
+  modules: Record<string, string>;
+  milestone: string;
+  portfolio: string;
+}
+
+// ============================================
 // COMPONENTS
 // ============================================
 
-/**
- * Button component variants
- */
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'white' | 'whatsapp';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'white' | 'whatsapp' | 'energy';
 
-/**
- * Button component sizes
- */
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 
-/**
- * Heading levels for Heading component
- */
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4';
 
-/**
- * Section background color options
- */
-export type SectionBackground = 'white' | 'light' | 'primary' | 'dark';
+export type SectionBackground = 'white' | 'light' | 'primary' | 'dark' | 'gradient-soft' | 'gradient-dark';
 
 // ============================================
 // SEO
 // ============================================
 
-/**
- * Page metadata for SEO
- */
 export interface PageMeta {
   title: string;
   description: string;
@@ -184,9 +183,6 @@ export interface PageMeta {
   ogImage?: string;
 }
 
-/**
- * JSON-LD Organization schema
- */
 export interface OrganizationSchema {
   '@context': string;
   '@type': string;
@@ -212,9 +208,6 @@ export interface OrganizationSchema {
   sameAs: string[];
 }
 
-/**
- * JSON-LD Article schema for blog posts
- */
 export interface ArticleSchema {
   '@context': string;
   '@type': string;
