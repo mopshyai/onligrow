@@ -75,7 +75,7 @@ export const NAV_LINKS: NavLink[] = [
 export const TEAM: TeamMember[] = [
   {
     name: 'Manvendra Kumar',
-    role: 'CEO & Co-Founder',
+    role: 'Co-Founder',
     initials: 'MK',
     bio: 'MS from University of Pittsburgh. Built automation at Redo. Experience at Volvo Group, HP, Beats by Dre. Product, technology, and the system architecture — that\'s his.',
     image: '/images/team/manvendra.webp',
@@ -83,23 +83,15 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: 'Dipti',
-    role: 'COO & Co-Founder',
+    role: 'Co-Founder',
     initials: 'D',
     bio: 'Deep Haryana roots. School partnerships, facilitator network, ground execution. If a school in Karnal is partnering with us, Dipti made it happen.',
     image: '/images/team/dipti.webp',
     linkedin: '',
   },
   {
-    name: 'Harsh',
-    role: 'CTO & Co-Founder',
-    initials: 'H',
-    bio: 'Curriculum architect and tech lead. Designs the learning experience. Makes sure every session works in a real classroom, not just on paper.',
-    image: '/images/team/harsh.webp',
-    linkedin: '',
-  },
-  {
     name: 'Ayush',
-    role: 'CMO & Co-Founder',
+    role: 'Co-Founder',
     initials: 'A',
     bio: 'Brand, marketing, competition management. Manages OnliGrow\'s voice — from the website to school WhatsApp groups.',
     image: '/images/team/ayush.webp',
