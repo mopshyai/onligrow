@@ -8,6 +8,7 @@ import { Check, Shield, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { SectionWrapper, SectionHeader } from '@/components/ui/SectionWrapper';
+import { Accordion } from '@/components/ui/Accordion';
 import Button from '@/components/ui/Button';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -118,19 +119,7 @@ export default function ParentsPage() {
           <p className="text-gray-700 text-center mb-12">
             Hindi-English mix — just like we talk
           </p>
-          <div className="space-y-3">
-            {parentFAQs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100"
-              >
-                <h3 className="font-semibold text-gray-900 mb-1 text-base">
-                  {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
+          <Accordion items={parentFAQs} />
         </div>
       </SectionWrapper>
 

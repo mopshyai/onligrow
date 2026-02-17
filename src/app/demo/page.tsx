@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { School, Projector, Clock, MessageCircle } from 'lucide-react';
 import { ContactForm } from '@/components/home/ContactForm';
 import { SectionWrapper, SectionHeader } from '@/components/ui/SectionWrapper';
+import { Accordion } from '@/components/ui/Accordion';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/constants';
 
@@ -162,19 +163,7 @@ export default function DemoPage() {
           <p className="text-gray-700 text-center mb-12">
             Everything you need to know about booking a free demo
           </p>
-          <div className="space-y-3">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <h3 className="font-semibold text-gray-900 mb-1 text-base">
-                  {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
+          <Accordion items={faqs} />
         </div>
       </SectionWrapper>
 

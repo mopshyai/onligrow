@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { ArrowRight, Check } from 'lucide-react';
 import { CTABanner } from '@/components/shared/CTABanner';
 import { SectionWrapper, SectionHeader } from '@/components/ui/SectionWrapper';
+import { Accordion } from '@/components/ui/Accordion';
 import Button from '@/components/ui/Button';
 import { pageMetadata } from '@/lib/metadata';
 import { MODULES, CONTACT } from '@/lib/constants';
@@ -324,19 +325,7 @@ export default function SchoolsPage() {
           <p className="text-gray-700 text-center mb-12">
             Common questions (with Hindi-English mix)
           </p>
-          <div className="space-y-3">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100"
-              >
-                <h3 className="font-semibold text-gray-900 mb-1 text-base">
-                  {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
+          <Accordion items={faqs} />
         </div>
       </SectionWrapper>
 
