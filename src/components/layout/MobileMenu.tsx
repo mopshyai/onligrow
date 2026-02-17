@@ -39,7 +39,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 lg:hidden bg-primary-950/95 backdrop-blur-xl"
+          className="fixed inset-0 z-[60] lg:hidden bg-primary-950/95 backdrop-blur-xl"
         >
           {/* Close button */}
           <button

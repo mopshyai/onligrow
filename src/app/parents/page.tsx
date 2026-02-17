@@ -118,16 +118,16 @@ export default function ParentsPage() {
           <p className="text-gray-700 text-center mb-12">
             Hindi-English mix — just like we talk
           </p>
-          <div className="space-y-6">
+          <div className="space-y-3">
             {parentFAQs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-card border border-gray-100"
+                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100"
               >
-                <h3 className="font-semibold text-gray-900 mb-3 text-lg">
+                <h3 className="font-semibold text-gray-900 mb-1 text-base">
                   {faq.q}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

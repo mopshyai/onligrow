@@ -22,21 +22,21 @@ const partnershipSteps = [
   },
   {
     step: 2,
-    title: 'Free 3-Month Pilot',
+    title: 'Custom Proposal',
     description:
-      'Loved the demo? We run a full pilot for 1-2 classes — three months, completely free. All modules included.',
+      'Loved the demo? We send a customized partnership proposal within 48 hours — tailored to your grades, schedule, and priorities.',
   },
   {
     step: 3,
-    title: 'Review Results Together',
+    title: 'Partnership Begins',
     description:
-      'After the pilot, we sit down with your data — student engagement, teacher feedback, parent response. You see the real impact.',
+      'We sign a simple partnership agreement. Our facilitators become a regular part of your school. 30-day exit clause, no lock-in.',
   },
   {
     step: 4,
-    title: 'Year-Round Partnership',
+    title: 'Year-Round Impact',
     description:
-      'If you\'re convinced, we sign a simple partnership agreement. Our facilitators become a regular part of your school. 30-day exit clause, no lock-in.',
+      'Ongoing sessions, quarterly reviews, student engagement data, teacher feedback, parent response — you see the real impact all year.',
   },
 ];
 
@@ -78,7 +78,7 @@ const faqs = [
   },
   {
     q: 'Koi lock-in hai?',
-    a: 'Nahi. 30-day exit clause hai. Aur pehle 3 months toh bilkul free hain. Risk zero hai.',
+    a: 'Nahi. 30-day exit clause hai. Aur pehla demo session bilkul free hai. Risk zero hai.',
   },
 ];
 
@@ -290,8 +290,8 @@ export default function SchoolsPage() {
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
             Student count, grades, schedule, and priorities all shape the
             partnership. We design a custom plan that works for your school and
-            your budget. The conversation starts free — and so does the first 3
-            months.
+            your budget. The first demo session is free — see the impact before
+            committing to anything.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -324,16 +324,16 @@ export default function SchoolsPage() {
           <p className="text-gray-700 text-center mb-12">
             Common questions (with Hindi-English mix)
           </p>
-          <div className="space-y-6">
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-card border border-gray-100"
+                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100"
               >
-                <h3 className="font-semibold text-gray-900 mb-3 text-lg">
+                <h3 className="font-semibold text-gray-900 mb-1 text-base">
                   {faq.q}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

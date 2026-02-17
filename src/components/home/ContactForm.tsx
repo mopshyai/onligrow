@@ -112,12 +112,12 @@ export function ContactForm() {
             )}
 
             {/* Form Card */}
-            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10 relative overflow-hidden mt-8">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 p-5 sm:p-8 md:p-10 relative overflow-hidden mt-8">
               {/* Decorative corner */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-energy-100 rounded-full blur-3xl opacity-50" />
 
-              <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-6">
+                <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
                   <Input
                     label="School Name"
                     placeholder="e.g., ABC Public School"
@@ -134,7 +134,7 @@ export function ContactForm() {
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
                   <Input
                     label="Contact Person Name"
                     placeholder="Your full name"
@@ -152,7 +152,7 @@ export function ContactForm() {
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-5">
+                <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
                   <Input
                     label="Email Address"
                     type="email"
@@ -173,7 +173,7 @@ export function ContactForm() {
                 <Textarea
                   label="Message"
                   placeholder="Tell us about your school, number of students, or any specific requirements..."
-                  rows={4}
+                  rows={3}
                   {...register('message')}
                   error={errors.message?.message}
                 />

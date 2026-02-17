@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: 'How many students can attend?',
-    a: '30 to 200. We adjust the format based on your group size.',
+    a: 'Any number — from a single class to the entire school. We adjust the format based on your group size.',
   },
   {
     q: 'Which grades?',
@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     q: 'What happens after the demo?',
-    a: 'We send a proposal within 48 hours. If you want to go further, we start a free 3-month pilot. No pressure.',
+    a: 'We send a customized proposal within 48 hours. If you want to go further, we design a partnership plan for your school. No pressure.',
   },
   {
     q: 'Hamare yahan ke bacche samjhenge kya?',
@@ -145,10 +145,10 @@ export default function DemoPage() {
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
             Within 48 hours, we share a customized proposal for your school. If
-            you&apos;re interested, we start a{' '}
-            <strong>free 3-month pilot</strong> for 1-2 classes — no cost, no
-            commitment. You experience the full OnliGrow partnership before
-            deciding anything.
+            you&apos;re interested, we design a{' '}
+            <strong>partnership plan</strong> tailored to your grades, schedule,
+            and priorities. The first demo session is completely free — you see
+            the impact before committing to anything.
           </p>
         </div>
       </SectionWrapper>
@@ -162,16 +162,16 @@ export default function DemoPage() {
           <p className="text-gray-700 text-center mb-12">
             Everything you need to know about booking a free demo
           </p>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq) => (
               <div
                 key={faq.q}
-                className="bg-white rounded-2xl p-6 shadow-card border border-gray-100 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
-                <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+                <h3 className="font-semibold text-gray-900 mb-1 text-base">
                   {faq.q}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">{faq.a}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
