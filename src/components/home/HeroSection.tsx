@@ -130,10 +130,10 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Curved bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" className="w-full h-auto fill-white" preserveAspectRatio="none">
-          <path d="M0,64L48,58.7C96,53,192,43,288,37.3C384,32,480,32,576,37.3C672,43,768,53,864,53.3C960,53,1056,43,1152,37.3C1248,32,1344,32,1392,32L1440,32L1440,80L1392,80C1344,80,1248,80,1152,80C1056,80,960,80,864,80C768,80,672,80,576,80C480,80,384,80,288,80C192,80,96,80L0,80Z" />
+      {/* Smooth curved bottom edge */}
+      <div className="absolute -bottom-px left-0 right-0">
+        <svg viewBox="0 0 1440 60" className="w-full h-[40px] sm:h-[60px] fill-white block" preserveAspectRatio="none">
+          <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" />
         </svg>
       </div>
     </section>
