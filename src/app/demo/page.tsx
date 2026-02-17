@@ -54,8 +54,8 @@ const faqs = [
     a: 'Grade 6 to 12. We adjust complexity based on the age group.',
   },
   {
-    q: 'Hindi or English?',
-    a: 'Both! Natural Hindi-English mix — just like students actually talk.',
+    q: 'What language is the session in?',
+    a: 'We deliver in English with simple, easy-to-follow language that all students can understand.',
   },
   {
     q: 'Do my teachers need to prepare anything?',
@@ -66,8 +66,8 @@ const faqs = [
     a: 'We send a customized proposal within 48 hours. If you want to go further, we design a partnership plan for your school. No pressure.',
   },
   {
-    q: 'Hamare yahan ke bacche samjhenge kya?',
-    a: 'Bilkul! Humara pura program specifically Tier-2/3 students ke liye design kiya hai. Simple language, hands-on activities. Demo mein aap khud dekh lenge.',
+    q: 'Will our students be able to understand it?',
+    a: 'Absolutely! Our entire program is specifically designed for Tier-2/3 students. Simple language, hands-on activities. You\'ll see for yourself in the demo.',
   },
 ];
 

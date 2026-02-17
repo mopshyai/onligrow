@@ -51,7 +51,7 @@ const values = [
 ];
 
 const milestones = [
-  { date: 'January 2026', event: 'OnliGrow founded by four co-founders from Tier-2 India' },
+  { date: 'January 2026', event: 'OnliGrow founded by three co-founders from Tier-2 India' },
   { date: 'February 2026', event: 'Website launched. School outreach begins in Haryana.' },
   { date: 'March 2026', event: 'First partner school demos delivered' },
   { date: 'June 2026', event: 'First schools move to year-round partnership' },
@@ -63,7 +63,6 @@ const avatarGradients = [
   'bg-gradient-to-br from-primary-500 to-creative-500',
   'bg-gradient-to-br from-energy-500 to-warm-500',
   'bg-gradient-to-br from-success-500 to-primary-500',
-  'bg-gradient-to-br from-creative-500 to-energy-500',
 ];
 
 export default function AboutPage() {
@@ -84,7 +83,7 @@ export default function AboutPage() {
             <span className="text-gradient-warm">Lived the Gap</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            Four co-founders from Tier-2 India. We&apos;re not building this from a WeWork in Bangalore.
+            Three co-founders from Tier-2 India. We&apos;re not building this from a WeWork in Bangalore.
             We&apos;re building it from the ground we&apos;re trying to change.
           </p>
         </div>
@@ -200,7 +199,7 @@ export default function AboutPage() {
               The People Behind the System
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TEAM.map((member, i) => (
               <div
                 key={member.name}

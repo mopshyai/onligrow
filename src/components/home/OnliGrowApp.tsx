@@ -1,11 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { Smartphone, Globe } from 'lucide-react';
 
 /* ── Phone Frame component ── */
 function PhoneFrame({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`w-[240px] h-[480px] md:w-[280px] md:h-[560px] rounded-[40px] border-[8px] border-gray-900 bg-white shadow-2xl relative overflow-hidden ${className}`}>
+    <div className={`w-[240px] h-[480px] md:w-[260px] md:h-[520px] lg:w-[280px] lg:h-[560px] rounded-[40px] border-[8px] border-gray-900 bg-white shadow-2xl relative overflow-hidden ${className}`}>
       {/* Notch */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-gray-900 rounded-b-[14px] z-20" />
       {/* Screen content */}
@@ -159,9 +160,17 @@ function FacilitatorScreen() {
   );
 }
 
+const views = [
+  { id: 'student', label: '🎓 Student', color: 'bg-primary-500' },
+  { id: 'parent', label: '👨‍👩‍👧 Parent', color: 'bg-creative-500' },
+  { id: 'facilitator', label: '👩‍🏫 Facilitator', color: 'bg-energy-500' },
+] as const;
+
 export function OnliGrowApp() {
+  const [activeView, setActiveView] = useState<'student' | 'parent' | 'facilitator'>('student');
+
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-creative-50/50 via-primary-50/30 to-energy-50/40 relative overflow-hidden">
+    <section className="py-16 md:py-28 bg-gradient-to-br from-creative-50/50 via-primary-50/30 to-energy-50/40 relative overflow-hidden">
       {/* Dot pattern overlay */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -169,21 +178,58 @@ export function OnliGrowApp() {
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-success-600">
             THE APP
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 font-heading">
             One App. Three Views.
           </h2>
-          <p className="mt-4 text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-700 text-base md:text-lg max-w-2xl mx-auto">
             Students track progress. Parents see results. Facilitators manage sessions.
             Everything connected.
           </p>
         </div>
 
-        {/* Three phone mockups */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+        {/* Mobile: Tab selector + single phone */}
+        <div className="md:hidden">
+          {/* Tab buttons */}
+          <div className="flex gap-2 justify-center mb-6">
+            {views.map((view) => (
+              <button
+                key={view.id}
+                onClick={() => setActiveView(view.id)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  activeView === view.id
+                    ? 'bg-primary-600 text-white shadow-md'
+                    : 'bg-white text-gray-600 border border-gray-200'
+                }`}
+              >
+                {view.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Single phone display */}
+          <div className="flex justify-center">
+            <div className="text-center">
+              <PhoneFrame className="mx-auto">
+                <div className={`${views.find(v => v.id === activeView)?.color} px-4 py-2 pt-8`}>
+                  <p className="text-white font-bold text-xs">{views.find(v => v.id === activeView)?.label}</p>
+                </div>
+                {activeView === 'student' && <StudentScreen />}
+                {activeView === 'parent' && <ParentScreen />}
+                {activeView === 'facilitator' && <FacilitatorScreen />}
+              </PhoneFrame>
+              <p className="mt-4 text-sm font-semibold text-gray-700">
+                {activeView.charAt(0).toUpperCase() + activeView.slice(1)} View
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Three phone mockups side by side */}
+        <div className="hidden md:flex items-center justify-center gap-6 lg:gap-10">
           {/* Student */}
           <div className="text-center">
             <PhoneFrame className="mx-auto">
@@ -219,23 +265,20 @@ export function OnliGrowApp() {
         </div>
 
         {/* App Store Badges Row */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-12">
-          {/* Apple — coming soon */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center mt-10 md:mt-12">
           <div className="flex items-center gap-2 bg-gray-200 rounded-xl px-5 py-3 opacity-60">
             <span className="text-lg">🍎</span>
             <span className="text-gray-500 text-sm">Coming Soon on iOS</span>
           </div>
 
-          {/* Google — coming soon */}
           <div className="flex items-center gap-2 bg-gray-200 rounded-xl px-5 py-3 opacity-60">
             <Smartphone className="w-5 h-5 text-gray-400" />
             <span className="text-gray-500 text-sm">Coming Soon on Android</span>
           </div>
 
-          {/* PWA — available now */}
           <div className="flex items-center gap-2 bg-energy-500 rounded-xl px-5 py-3 shadow-lg shadow-energy-500/25">
-            <Globe className="w-5 h-5 text-white animate-pulse" />
-            <span className="text-white text-sm font-bold">Available Now — app.onligrow.com</span>
+            <Globe className="w-5 h-5 text-white" />
+            <span className="text-white text-sm font-bold">Available Now — app.onligrow.in</span>
           </div>
         </div>
 

@@ -25,7 +25,6 @@ export function Accordion({ items, className }: AccordionProps) {
     <div className={cn('space-y-2', className)}>
       {items.map((item, index) => {
         const isOpen = openIndex === index;
-
         return (
           <div
             key={index}
@@ -47,11 +46,12 @@ export function Accordion({ items, className }: AccordionProps) {
                 )}
               />
             </button>
-
             <div
               className={cn(
                 'grid transition-all duration-200 ease-in-out',
-                isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                isOpen
+                  ? 'grid-rows-[1fr] opacity-100'
+                  : 'grid-rows-[0fr] opacity-0'
               )}
             >
               <div className="overflow-hidden">

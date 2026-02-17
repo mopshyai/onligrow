@@ -1,6 +1,6 @@
 /**
  * For Parents page - What your child gets with OnliGrow
- * Hindi-English mixed content with safety and privacy information
+ * Content with safety and privacy information
  */
 
 import type { Metadata } from 'next';
@@ -26,28 +26,28 @@ const whatChildGets = [
 
 const parentFAQs = [
   {
-    q: 'Ye kya hai exactly?',
-    a: 'OnliGrow aapke bachche ko school mein hi AI, career guidance, English speaking, business skills, aur national competitions ka exposure deta hai. Ye sab normally sirf Delhi-Mumbai ke schools mein hota hai. Hum ye aapke bachche ke school mein laate hain.',
+    q: 'What is this exactly?',
+    a: 'OnliGrow gives your child exposure to AI, career guidance, English speaking, business skills, and national competitions — right inside their school. These opportunities are usually only available in schools in Delhi or Mumbai. We bring them to your child\'s school.',
   },
   {
-    q: 'Kya marks improve honge?',
-    a: 'OnliGrow directly marks improve karne ke liye nahi hai. Lekin jo skills students seekhte hain — problem-solving, critical thinking, communication, confidence — ye unke overall performance ko boost karte hain. Aur future mein college admissions aur jobs ke liye ye skills marks se zyada matter karenge.',
+    q: 'Will it improve my child\'s marks?',
+    a: 'OnliGrow is not directly aimed at improving marks. But the skills students learn — problem-solving, critical thinking, communication, confidence — these boost their overall performance. And in the future, for college admissions and jobs, these skills will matter more than marks.',
   },
   {
-    q: 'Kya ye safe hai? Data ka kya?',
-    a: '100% safe. Sab sessions school ke andar hoti hain, trained facilitators ke saath, teachers ki supervision mein. DPDPA compliance hai. Bina aapki consent ke koi bhi data collect nahi hota.',
+    q: 'Is it safe? What about data?',
+    a: '100% safe. All sessions happen inside the school, with trained facilitators, under teacher supervision. We are DPDPA compliant. No data is collected without your consent.',
   },
   {
-    q: 'Extra paise lagenge?',
-    a: 'Program ki details school ke through aati hain. Aapka school aapko sab batayega. Hum directly parents se payment nahi lete.',
+    q: 'Will there be extra charges?',
+    a: 'Program details come through the school. Your school will share everything with you. We do not collect payments directly from parents.',
   },
   {
-    q: 'Real mein kuch seekhenge ya timepass hai?',
-    a: 'Bilkul real learning. Students AI tools use karte hain, projects banate hain, professionals se milte hain, competitions mein participate karte hain. Certificate bhi milta hai. Demo session mein aap khud fark dekh lenge.',
+    q: 'Will they actually learn something or is it just a waste of time?',
+    a: 'Absolutely real learning. Students use AI tools, build projects, meet professionals, and participate in competitions. They also earn certificates. You\'ll see the difference yourself in the demo session.',
   },
   {
-    q: 'Kitna time lagta hai? Padhai ka time nahi jaayega?',
-    a: 'Haftey mein sirf 1-2 periods (45-60 min). Activity period ya extra slot mein hota hai. Regular padhai bilkul affect nahi hoti.',
+    q: 'How much time does it take? Will it affect study time?',
+    a: 'Only 1-2 periods per week (45-60 min). It happens during the activity period or an extra slot. Regular studies are not affected at all.',
   },
 ];
 
@@ -61,7 +61,7 @@ const safetyPoints = [
 
 export default function ParentsPage() {
   const whatsappShareLink = `https://wa.me/?text=${encodeURIComponent(
-    'Check out OnliGrow — they partner with schools to bring AI education, career guidance, and more: https://onligrow.com/schools'
+    'Check out OnliGrow — they partner with schools to bring AI education, career guidance, and more: https://onligrow.in/schools'
   )}`;
 
   return (
@@ -77,7 +77,7 @@ export default function ParentsPage() {
             For Parents
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading">
-            Aapka Bachcha Sirf Padhai Nahi, Future Ke Liye Tayyar Ho Raha Hai
+            Your Child Isn&apos;t Just Studying — They&apos;re Getting Ready for the Future
           </h1>
           <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             What your child gets through OnliGrow — and why it matters.
@@ -117,7 +117,7 @@ export default function ParentsPage() {
             Common Questions
           </h2>
           <p className="text-gray-700 text-center mb-12">
-            Hindi-English mix — just like we talk
+            Answers to the most common parent questions
           </p>
           <Accordion items={parentFAQs} />
         </div>

@@ -1,15 +1,9 @@
-/**
- * Root layout for OnliGrow website
- * Sets up fonts, metadata, navbar, footer, and global components
- */
-
 import type { Metadata, Viewport } from 'next';
 import { Poppins, Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import Script from 'next/script';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_CONFIG } from '@/lib/constants';
 import './globals.css';
 
@@ -22,6 +16,7 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800'],
   variable: '--font-poppins',
   display: 'swap',
+  preload: true,
 });
 
 const inter = Inter({
@@ -29,6 +24,7 @@ const inter = Inter({
   weight: ['400', '500', '600'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
 });
 
 const notoSansDevanagari = Noto_Sans_Devanagari({
@@ -43,54 +39,33 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 // ============================================
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_CONFIG.url),
+  metadataBase: new URL('https://onligrow.in'),
   title: {
-    default: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
-    template: `%s | ${SITE_CONFIG.name}`,
+    default: 'OnliGrow — The Operating System for Student Futures',
+    template: '%s | OnliGrow',
   },
-  description: SITE_CONFIG.description,
+  description:
+    'AI education, career architecture, English & life skills, national competitions, and ₹15,000+ in digital tools — delivered inside your school. For Grades 8-12 across India.',
   keywords: [
-    'AI education',
-    'AI for schools',
-    'artificial intelligence education India',
+    'AI education India',
     'school AI program',
     'career guidance students',
-    'NEP 2020 AI',
-    'AI olympiad India',
-    'tier 2 tier 3 education',
-    'edtech India',
-    'school programs Haryana',
+    'NEP 2020 aligned',
+    'edtech school partnership',
+    'student competitions India',
+    'OnliGrow',
+    'school digital transformation',
+    'coding for school students',
+    'career counselling schools',
+    'English skills training schools',
   ],
-  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
-  creator: SITE_CONFIG.name,
-  publisher: SITE_CONFIG.name,
+  authors: [{ name: 'OnliGrow EdTech' }],
+  creator: 'OnliGrow',
+  publisher: 'OnliGrow EdTech',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: SITE_CONFIG.name,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
-    images: ['/og-image.png'],
-    creator: '@onligrow',
   },
   robots: {
     index: true,
@@ -103,6 +78,45 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://onligrow.in',
+    siteName: 'OnliGrow',
+    title: 'OnliGrow — The Operating System for Student Futures',
+    description:
+      'AI education, career architecture, and life skills for every school in India. Grades 8-12. NEP 2020 aligned.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'OnliGrow — The Operating System for Student Futures',
+        type: 'image/png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OnliGrow — The Operating System for Student Futures',
+    description:
+      'AI education, career architecture, and life skills for every school in India.',
+    images: ['/og-image.png'],
+    creator: '@onligrow',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  manifest: '/site.webmanifest',
+  other: {
+    'msapplication-TileColor': '#1E1B4B',
+  },
 };
 
 export const viewport: Viewport = {
@@ -110,6 +124,37 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: '#4F46E5',
+};
+
+// ============================================
+// JSON-LD STRUCTURED DATA
+// ============================================
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'OnliGrow',
+  legalName: 'OnliGrow EdTech Pvt Ltd',
+  url: 'https://onligrow.in',
+  logo: 'https://onligrow.in/favicon-32x32.png',
+  description:
+    'AI education, career architecture, and life skills for school students across India.',
+  foundingDate: '2026',
+  founders: [
+    { '@type': 'Person', name: 'Manvendra Kumar' },
+    { '@type': 'Person', name: 'Dipti' },
+    { '@type': 'Person', name: 'Ayush Dixit' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'IN',
+    addressRegion: 'Haryana',
+  },
+  sameAs: [
+    'https://www.instagram.com/onligrow',
+    'https://www.linkedin.com/company/onligrow',
+    'https://www.youtube.com/@onligrow',
+  ],
 };
 
 // ============================================
@@ -130,8 +175,22 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} ${notoSansDevanagari.variable}`}
     >
       <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Preconnect to external origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Safari pinned tab */}
+        <link
+          rel="mask-icon"
+          href="/safari-pinned-tab.svg"
+          color="#4F46E5"
+        />
 
         {/* Google Analytics - Only in production */}
         {isProduction && GA_MEASUREMENT_ID && (
@@ -183,6 +242,12 @@ export default function RootLayout({
         )}
       </head>
       <body className="font-body antialiased">
+        {/* JSON-LD structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         {/* Skip to main content for accessibility */}
         <a
           href="#main-content"
@@ -191,22 +256,15 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        {/* Navigation */}
         <Navbar />
 
-        {/* Main content */}
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
 
-        {/* Footer */}
         <Footer />
 
-        {/* Floating WhatsApp button */}
         <WhatsAppButton />
-
-        {/* Vercel Speed Insights */}
-        <SpeedInsights />
       </body>
     </html>
   );

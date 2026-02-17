@@ -58,28 +58,28 @@ const qualityPoints = [
 
 const faqs = [
   {
-    q: 'OnliGrow exactly kya karta hai?',
-    a: 'Hum aapke school ke saath year-round partner bante hain. AI education, career guidance, English skills, competitions, digital tools, school platform, aur teacher training — sab kuch hamare trained facilitators deliver karte hain, aapke school mein, aapke schedule ke andar.',
+    q: 'What exactly does OnliGrow do?',
+    a: 'We become a year-round partner for your school. AI education, career guidance, English skills, competitions, digital tools, school platform, and teacher training — everything is delivered by our trained facilitators, at your school, within your schedule.',
   },
   {
-    q: 'Ye ek course hai ya kuch aur?',
-    a: 'Ye course nahi hai. Ye ek partnership hai. Hum aate hain, 12 weeks kaam karte hain aur chale jaate hain — aisa nahi hai. Hum pura saal aapke school ke saath rehte hain. Hamare facilitators regularly aapke school mein aate hain across multiple modules.',
+    q: 'Is this a course or something else?',
+    a: 'This is not a course. It\'s a partnership. We don\'t come in, work for 12 weeks, and leave. We stay with your school the entire year. Our facilitators regularly visit your school across multiple modules.',
   },
   {
-    q: 'Academic schedule mein time kahan se nikalein?',
-    a: 'Hume sirf haftey mein 1-2 periods chahiye (45-60 min). Activity period, Saturday slot, ya after-school time — jo bhi suit kare. Aapka regular academic schedule affect nahi hota.',
+    q: 'Where do we find time in the academic schedule?',
+    a: 'We only need 1-2 periods per week (45-60 min). Activity period, Saturday slot, or after-school time — whatever works for you. Your regular academic schedule is not affected.',
   },
   {
-    q: 'Hamare students samjhenge?',
-    a: 'Bilkul! Humara sab kuch Tier-2/3 students ke liye design kiya gaya hai. Simple Hindi-English mein, hands-on activities ke saath. Demo mein khud dekh lenge.',
+    q: 'Will our students understand it?',
+    a: 'Absolutely! Everything is designed specifically for Tier-2/3 students. Simple language, hands-on activities. You\'ll see for yourself in the demo.',
   },
   {
-    q: 'Pehle se koi school use kar raha hai?',
-    a: 'Hum March 2026 mein first school partners ke saath pilot shuru kar rahe hain. Early partner schools ko founding partner benefits milenge.',
+    q: 'Are any schools already using this?',
+    a: 'We are starting our pilot with the first school partners in March 2026. Early partner schools will receive founding partner benefits.',
   },
   {
-    q: 'Koi lock-in hai?',
-    a: 'Nahi. 30-day exit clause hai. Aur pehla demo session bilkul free hai. Risk zero hai.',
+    q: 'Is there any lock-in?',
+    a: 'No. There\'s a 30-day exit clause. Your first demo session is completely free. Zero risk.',
   },
 ];
 
@@ -323,7 +323,7 @@ export default function SchoolsPage() {
             FAQs for Principals
           </h2>
           <p className="text-gray-700 text-center mb-12">
-            Common questions (with Hindi-English mix)
+            Common questions from school principals
           </p>
           <Accordion items={faqs} />
         </div>

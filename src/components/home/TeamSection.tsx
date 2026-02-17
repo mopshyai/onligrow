@@ -6,7 +6,6 @@ const avatarGradients = [
   'bg-gradient-to-br from-primary-500 to-creative-500',
   'bg-gradient-to-br from-energy-500 to-warm-500',
   'bg-gradient-to-br from-success-500 to-primary-500',
-  'bg-gradient-to-br from-creative-500 to-energy-500',
 ];
 
 export function TeamSection() {
@@ -21,13 +20,13 @@ export function TeamSection() {
             Built by People Who Lived the Gap
           </h2>
           <p className="text-gray-700 mt-4 max-w-2xl mx-auto text-lg">
-            Four co-founders from Tier-2 India. We&apos;re not building this from a
+            Three co-founders from Tier-2 India. We&apos;re not building this from a
             WeWork in Bangalore. We&apos;re building it from the ground we&apos;re
             trying to change.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TEAM.map((member, index) => (
             <div
               key={member.name}

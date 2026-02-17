@@ -3,7 +3,7 @@
  * Centralized configuration for easy maintenance
  */
 
-import type { TeamMember, Benefit, HowItWorksStep, NavLink, Module, Product } from '@/types';
+import type { TeamMember, Benefit, HowItWorksStep, NavLink, Module } from '@/types';
 
 // ============================================
 // SITE CONFIGURATION
@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   tagline: 'The Operating System for Student Futures',
   description:
     'A 5-year operating system that transforms school students into career-ready, portfolio-carrying, nationally-competitive young adults. AI education, career architecture, life skills, national competitions, and professional tools — delivered inside your school.',
-  url: 'https://onligrow.com',
+  url: 'https://onligrow.in',
   founded: 2026,
   locale: 'en-IN',
 } as const;
@@ -25,8 +25,8 @@ export const SITE_CONFIG = {
 // ============================================
 
 export const CONTACT = {
-  email: 'info@onligrow.com',
-  teamEmail: 'team@onligrow.com',
+  email: 'info@onligrow.in',
+  teamEmail: 'team@onligrow.in',
   phone: '+91-XXXXXXXXXX',
   whatsappNumber: '91XXXXXXXXXX',
   whatsappLink:
@@ -77,7 +77,7 @@ export const TEAM: TeamMember[] = [
     name: 'Manvendra Kumar',
     role: 'Co-Founder',
     initials: 'MK',
-    bio: 'MS from University of Pittsburgh. Built automation at Redo. Experience at Volvo Group, HP, Beats by Dre. Product, technology, and the system architecture — that\'s his.',
+    bio: 'MS in MIS from University of Pittsburgh. Built claims automation from scratch at Redo using AWS, MongoDB, and Node.js. Previous stints at Volvo Group, HP, and Beats by Dre. Grew up in UP, studied in the US, saw firsthand how geography determines opportunity. Owns product strategy, platform architecture, and curriculum design.',
     image: '/images/team/manvendra.webp',
     linkedin: '',
   },
@@ -85,15 +85,15 @@ export const TEAM: TeamMember[] = [
     name: 'Dipti',
     role: 'Co-Founder',
     initials: 'D',
-    bio: 'Deep Haryana roots. School partnerships, facilitator network, ground execution. If a school in Karnal is partnering with us, Dipti made it happen.',
+    bio: 'Deep roots in India\'s school ecosystem with a sharp instinct for what principals care about and what parents will pay for. Leads go-to-market, school outreach, partnerships, and brand. If a school is partnering with OnliGrow — Dipti made it happen.',
     image: '/images/team/dipti.webp',
     linkedin: '',
   },
   {
-    name: 'Ayush',
+    name: 'Ayush Dixit',
     role: 'Co-Founder',
     initials: 'A',
-    bio: 'Brand, marketing, competition management. Manages OnliGrow\'s voice — from the website to school WhatsApp groups.',
+    bio: 'The operational backbone. Handles incorporation, contracts, regulatory filings, GST/TDS, IP protection, and DPDP compliance — everything that keeps the company legally airtight while the others move fast. Makes sure OnliGrow runs clean from day one.',
     image: '/images/team/ayush.webp',
     linkedin: '',
   },
@@ -378,40 +378,6 @@ export const IMPACT_NUMBERS = {
 } as const;
 
 // ============================================
-// PRODUCTS
-// ============================================
-
-export const PRODUCTS: Product[] = [
-  {
-    name: 'Free Demo Session',
-    duration: '45 minutes',
-    price: 'Free',
-    description: 'One interactive session where your students experience real AI tools. See the impact before you commit.',
-    cta: 'Book Free Demo',
-    href: '/demo',
-    icon: 'presentation',
-  },
-  {
-    name: 'Quarterly Program',
-    duration: '3 months',
-    price: '₹999/student',
-    description: 'Full access to all 8 modules. Our facilitators come to your school. Zero teacher burden. NEP 2020 aligned.',
-    cta: 'Get Started',
-    href: '/schools',
-    icon: 'graduationCap',
-  },
-  {
-    name: 'OnliGrow Olympiad',
-    duration: 'Annual',
-    price: '₹299/student',
-    description: 'India\'s first AI-focused inter-school competition. Three rounds. National stage. Grades 8-12.',
-    cta: 'Register Now',
-    href: '/olympiad',
-    icon: 'trophy',
-  },
-];
-
-// ============================================
 // FOOTER LINKS
 // ============================================
 
@@ -431,7 +397,7 @@ export const FOOTER_LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   getTheApp: [
-    { label: '📱 PWA Available Now', href: 'https://app.onligrow.com', external: true },
+    { label: '📱 PWA Available Now', href: 'https://app.onligrow.in', external: true },
     { label: '🍎 iOS — Coming Q3 2026', href: '#', disabled: true },
     { label: '🤖 Android — Coming Q3 2026', href: '#', disabled: true },
   ],

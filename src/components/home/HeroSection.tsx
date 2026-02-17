@@ -10,10 +10,10 @@ export function HeroSection() {
       {/* === BACKGROUND: Multi-color gradient with floating shapes === */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-creative-950" />
 
-      {/* Colorful gradient orbs */}
-      <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-creative-500/20 rounded-full blur-[120px] animate-float-slow" />
-      <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-energy-500/15 rounded-full blur-[100px] animate-float-slower" />
-      <div className="absolute top-[40%] right-[30%] w-[300px] h-[300px] bg-success-500/10 rounded-full blur-[80px] animate-float-medium" />
+      {/* Colorful gradient orbs - hidden on mobile for performance */}
+      <div className="absolute top-[10%] left-[5%] w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-creative-500/20 rounded-full blur-[120px] hidden sm:block" />
+      <div className="absolute bottom-[10%] right-[10%] w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-energy-500/15 rounded-full blur-[100px] hidden sm:block" />
+      <div className="absolute top-[40%] right-[30%] w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-success-500/10 rounded-full blur-[80px] hidden md:block" />
 
       {/* Dot pattern overlay */}
       <div
@@ -48,7 +48,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight font-heading"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight font-heading"
           >
             <span className="text-white">We Don&apos;t Teach Courses.</span>
             <br />

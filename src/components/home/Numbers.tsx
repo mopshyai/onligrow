@@ -31,7 +31,7 @@ export function Numbers() {
               key={stat.label}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300 text-center"
             >
-              <div className="text-4xl md:text-5xl font-extrabold text-white font-mono">
+              <div className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white font-mono">
                 {stat.value}
               </div>
               <div className="text-white font-semibold mt-2 text-sm md:text-base">{stat.label}</div>
